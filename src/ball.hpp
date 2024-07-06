@@ -16,11 +16,10 @@ class Ball {
         float radius;
         int idx;
         SDL_Renderer *renderer;
-        std::pair<float, float> centers[10];
     public:
-        void DrawBall();
-        void MoveBall();
-        
         Ball(SDL_Renderer* renderer, float x, float y, int idx);
+        void DrawBall();
+        void MoveBall(std::pair<float, float> centers[10], std::pair<float, float> speeds[10]);
+        float dist(std::pair<float, float> a, std::pair<float, float> b);
         void noiseGen();
 };
