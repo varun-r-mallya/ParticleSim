@@ -6,10 +6,10 @@
 #define HEIGHT 400
 #define PI 3.1415926
 
-#define MAX_SPEED 0.05
+#define MAX_SPEED 0.1
 #define MAX_NOISE 0.1
 #define WIGGLE 1.0
-#define GAP 0.1
+#define GAP MAX_SPEED*2 + 2
 
 std::random_device rd;
 std::mt19937 gen(rd());
@@ -63,7 +63,7 @@ double Ball::dist(std::pair<double, double> a, std::pair<double, double> b){
 	return sqrt((a.first-b.first)*(a.first-b.first) + (a.second-b.second)*(a.second-b.second));
 }
 
-void Ball::MoveBall(std::pair<double, double> centers[10], std::pair<double, double> speeds[10] ) {
+void Ball::MoveBall(std::pair<double, double> centers[20], std::pair<double, double> speeds[20] ) {
     x0 += Vx;
     y0 += Vy;
 	speeds[idx].first = Vx;
@@ -81,7 +81,7 @@ void Ball::MoveBall(std::pair<double, double> centers[10], std::pair<double, dou
 	centers[idx].second = y0;
 	double theta_a = atan(speeds[idx].second/speeds[idx].first);
 	double V1 = dist(speeds[idx], {0,0});
-	for(int i = 0; i < 10; i++){
+	for(int i = 0; i < 20; i++){
 		if(i != idx){
 			double distance = dist(centers[i],centers[idx]);
 			if(distance <= ((radius*2) + GAP) && distance >= ((radius*2) - GAP)){

@@ -19,7 +19,7 @@ class Ball {
     public:
         Ball(SDL_Renderer* renderer, double x, double y, int idx);
         void DrawBall();
-        void MoveBall(std::pair<double, double> centers[10], std::pair<double, double> speeds[10]);
+        void MoveBall(std::pair<double, double> centers[20], std::pair<double, double> speeds[20]);
         double dist(std::pair<double, double> a, std::pair<double, double> b);
         void noiseGen();
 };

@@ -22,10 +22,10 @@ int main(int argc, char ** argv)
     SDL_SetTextureBlendMode(texture, SDL_BLENDMODE_BLEND);
     // SDL_Texture * path = SDL_CreateTexture(renderer,
     // SDL_PIXELFORMAT_ARGB8888, SDL_TEXTUREACCESS_STATIC, WIDTH, HEIGHT);
-    std::pair<double, double> centers[10];
-    std::pair<double, double> speeds[10];
-    Ball* A[10];
-    for(int i = 0; i < 10; ++i) {
+    std::pair<double, double> centers[20];
+    std::pair<double, double> speeds[20];
+    Ball* A[20];
+    for(int i = 0; i < 20; ++i) {
     A[i] = new Ball(renderer, (rand() % (201)), (rand() % (201)), i); // Initialise each Ball object
     }
     
@@ -44,7 +44,7 @@ int main(int argc, char ** argv)
 		SDL_RenderClear(renderer);
 
         SDL_SetRenderDrawColor(renderer, 0, 255, 255, 255);
-        for(int i = 0; i < 10; ++i) {
+        for(int i = 0; i < 20; ++i) {
         A[i]->DrawBall(); 
         A[i]->MoveBall(centers, speeds);
         }
