@@ -9,17 +9,17 @@
 
 class Ball {
     private:
-        float x0;
-        float y0;
-        float Vx;
-        float Vy;
-        float radius;
+        double x0;
+        double y0;
+        double Vx;
+        double Vy;
+        double radius;
         int idx;
         SDL_Renderer *renderer;
     public:
-        Ball(SDL_Renderer* renderer, float x, float y, int idx);
+        Ball(SDL_Renderer* renderer, double x, double y, int idx);
         void DrawBall();
-        void MoveBall(std::pair<float, float> centers[10], std::pair<float, float> speeds[10]);
-        float dist(std::pair<float, float> a, std::pair<float, float> b);
+        void MoveBall(std::pair<double, double> centers[10], std::pair<double, double> speeds[10]);
+        double dist(std::pair<double, double> a, std::pair<double, double> b);
         void noiseGen();
 };
